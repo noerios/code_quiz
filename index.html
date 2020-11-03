@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Assets/style.css">
+    <title>Noe's Quiz</title>
+</head>
+<body>
+    <h1>Quiz Time</h1>
+    <h2>Click Start</h2>
+    <div class="choices">
+        <ul></ul>
+        <div class="button"> 
+            <button>Start Button</button>
+        </div>
+    </div>
+    
+
+    <script>
+//display that shows a title and a start button
+//array of objects with questions, answer, choices as strings
+var quizQuestions = [
+    {
+        question: "In what year was Mariah Carey's first single released?",
+        choices: ["1989", "1990", "1991", "1992"],
+        answer: "1990",
+    }
+    {
+        question: "Which song took 25 years to reach its peak at #1 on the Billboard Hot 100?",
+        choices: ["Always Be My Baby", "Honey", "All I Want for Christmas Is You", "We Belong Together"],
+        answer: "All I Want for Christmas Is You"
+    }
+    {
+        question: "How many Grammy awards has Mariah Carey won?"
+        choices: ["5", "8", "9", "12"],
+        answer: "5",
+    }
+]
+
+//function that turns the Timer on when the start button is pressed - look at timer activity
+//show a question with multiple answers
+//user selects an answer 
+//appliation determines if the answer is correct
+function checkAnswer(answer) {
+    var question = quizQuestions[currentQuestionIndex];
+    if(answer === question.answer) {
+        //increment score by 1
+    }
+    currentQuestionIndex++;
+    quizContent();
+}
+//if the user picks an incorrect answer, the timer deducts five seconds
+//if the user picks a correct answer, the next question is displayed
+//once all questions have been answered, the user is prompted to add his initials
+//initials and score are stored on local storage and displayed to user
+
+//
+
+    </script>
+    
+</body>
+</html>
