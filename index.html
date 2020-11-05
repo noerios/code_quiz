@@ -9,9 +9,9 @@
 <body>
     <h1>Quiz Time!</h1>
     <h2 class="prompt">Click Start</h2>
-    <div class="choices">
+    <div id="choices">
         <ul></ul>
-        <div class="button"> 
+        <div id="button"> 
             <button>Start Button</button>
         </div>
     </div>
@@ -27,6 +27,8 @@ let PromptEl= document.querySelector("prompt");
 let ButtonEl= document.querySelector("button");
 let TimerEl= document.querySelector("timer");
 let ChoicesEl= document.querySelector("choices");
+
+var currentQuestionIndes = 0;
 
 //display that shows a title and a start button
 //array of objects with questions, answer, choices as strings
@@ -54,8 +56,10 @@ var quizQuestions = [
 //function that turns the Timer on when the start button is pressed - look at timer activity
 //timer
 
-let counter = 60;
-let timerInterval = setInterval(function() {
+var runTimer
+
+    let counter = 60;
+    let timerInterval = setInterval(function() {
     timerEl.textContent = counter + ' ' + 'seconds remaining';
     counter --;
     if (counter === -1) {
@@ -64,10 +68,18 @@ let timerInterval = setInterval(function() {
     if (counter === -1) {
         alert("You're out of time!");
     }
-}, 1000);
+    }, 1000);
 
 
 //show a question with multiple answers
+
+function quizContent() {
+    var question = quizQuestions[currentQuestionIndex];
+    PromptEl.textContent = question.question;
+}
+
+
+
 //user selects an answer 
 //appliation determines if the answer is correct
 function checkAnswer(answer) {
@@ -80,6 +92,8 @@ function checkAnswer(answer) {
 }
 //if the user picks an incorrect answer, the timer deducts five seconds
 //if the user picks a correct answer, the next question is displayed
+
+
 //once all questions have been answered, the user is prompted to add his initials
 //initials and score are stored on local storage and displayed to user
 
