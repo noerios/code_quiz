@@ -17,89 +17,28 @@
     </div>
     
     <div>
-        <p id="timer"></p>
+        <p id="timer">Time:</p>
     </div>
 
-    <script>
+    <div id="results">
+        <h3>Spread Your Wings!</h3>
+        <h5>You scored: <span id="score"> </span></h5>
+        <h5 id="yourInitials">Enter Initials:</h5>
+        <form id="submit">
+          <input id="initials" placeholder="Your Initials" type="text" />
+          <button type="submit">SUBMIT</button>
+        </form>
+      </div>
+  
+      <div id="scores">
+        <h1>TOP SCORES!</h1>
+        <ul id="scoreslist"></ul>
+      </div>
+  
 
-//call elements from html
-let PromptEl= document.querySelector("prompt");
-let ButtonEl= document.querySelector("button");
-let TimerEl= document.querySelector("timer");
-let ChoicesEl= document.querySelector("choices");
-
-var currentQuestionIndes = 0;
-
-//display that shows a title and a start button
-//array of objects with questions, answer, choices as strings
-
-
-
-var quizQuestions = [
-    {
-        question: "In what year was Mariah Carey's first single released?",
-        choices: ["1989", "1990", "1991", "1992"],
-        answer: "1990",
-    },
-    {
-        question: "Which song took 25 years to reach its peak at #1 on the Billboard Hot 100?",
-        choices: ["Always Be My Baby", "Honey", "All I Want for Christmas Is You", "We Belong Together"],
-        answer: "All I Want for Christmas Is You"
-    },
-    {
-        question: "How many Grammy awards has Mariah Carey won?",
-        choices: ["5", "8", "9", "12"],
-        answer: "5",
-    }
-]
-
-//function that turns the Timer on when the start button is pressed - look at timer activity
-//timer
-
-var runTimer
-
-    let counter = 60;
-    let timerInterval = setInterval(function() {
-    timerEl.textContent = counter + ' ' + 'seconds remaining';
-    counter --;
-    if (counter === -1) {
-        clearInterval(timerInterval);
-    }
-    if (counter === -1) {
-        alert("You're out of time!");
-    }
-    }, 1000);
-
-
-//show a question with multiple answers
-
-function quizContent() {
-    var question = quizQuestions[currentQuestionIndex];
-    PromptEl.textContent = question.question;
-}
-
-
-
-//user selects an answer 
-//appliation determines if the answer is correct
-function checkAnswer(answer) {
-    var question = quizQuestions[currentQuestionIndex];
-    if(answer === question.answer) {
-        //increment score by 1
-    }
-    currentQuestionIndex++;
-    quizContent();
-}
-//if the user picks an incorrect answer, the timer deducts five seconds
-//if the user picks a correct answer, the next question is displayed
-
-
-//once all questions have been answered, the user is prompted to add his initials
-//initials and score are stored on local storage and displayed to user
-
-//
-
-    </script>
+      <script src="/Assets/questions.js"></script>
+      <script src="/Assets/script.js"></script>
+    
     
 </body>
 </html>
