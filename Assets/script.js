@@ -1,12 +1,39 @@
 //call elements from html
-var PromptEl= document.querySelector("#prompt");
+var PromptEl = document.querySelector("prompt");
 
-var ChoicesEl= document.querySelector("#choices");
+var ChoicesEl = document.querySelector("choices");
+var timerEl = document.getElementById("timer");
 
 var currentQuestionIndex = 0;
-var Timer;
+
 var timerInterval;
+var timeLeft = 100;
 var display;
+var score = 0;
+var correct;
+var timerId;
+var countdown = 550;
+
+
+var quizQuestions = [
+    {
+        question: "In what year was Mariah Carey's first single released?",
+        choices: ["1989", "1990", "1991", "1992"],
+        answer: "1990",
+    },
+    {
+        question: "Which song took 25 years to reach its peak at #1 on the Billboard Hot 100?",
+        choices: ["Always Be My Baby", "Honey", "All I Want for Christmas Is You", "We Belong Together"],
+        answer: "All I Want for Christmas Is You"
+    },
+    {
+        question: "How many Grammy awards has Mariah Carey won?",
+        choices: ["5", "8", "9", "12"],
+        answer: "5",
+    }
+]
+
+
 
 var startButton = document
     .querySelector("#button")
@@ -18,6 +45,29 @@ function startButtonClicked(e) {
     startTimer(fiveMinutes, display);
     displayQuestion();
 }
+
+function startQuiz () {
+    displayQuestion();
+    timerInterval = setInterval(function() {
+        timeLeft--;
+        timerEl.textContent = "Remaining time: " + timeLeft;
+        if(timeLeft===0) {
+            clearInterval(timerInterval);
+            displayScore();
+        }
+    }, 1000);
+}
+
+function startTimer() {
+    timerId = setInterval(function () {
+        timerEl.textContent = countdown;
+        if (countdown === 0) {
+            endGame();
+        }
+        countdown--;
+    }, 1000);
+}
+
 
 function answerButtonClicked(e) {
     if (this.value !== questions[currentQuestionIndex].answer) {
@@ -32,7 +82,7 @@ function answerButtonClicked(e) {
 }
 
 function displayQuestion(e) {
-    var currentQuestion = questions[currentQuestionIndex];
+    var currentQuestion = quizQuestions[currentQuestionIndex];
     if (!currentQuestion) {
         return gameOver();
     } 
@@ -51,6 +101,8 @@ function displayQuestion(e) {
         ul.append(li);
     }
 }
+
+
 
 function gameOver() {
     clearInterval(timerInterval);
