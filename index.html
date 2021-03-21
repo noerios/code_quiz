@@ -9,15 +9,29 @@
 <body>
     <h1>Quiz Time!</h1>
     <h2 class="prompt">Click Start</h2>
+    
     <div id="choices">
         <ul></ul>
         <div id="button"> 
             <button>Start Button</button>
         </div>
+
     </div>
     
     <div>
         <p id="timer">Time:</p>
+    </div>
+
+    <!--quiz section-->
+    <div id="quiz" class="hide">
+      <div id="questionLine">
+        <p></p>
+      </div>
+      <h2 id="quizFirst"></h2>
+      <button id="btn-1" class="ans"></button>     
+      <button id="btn-2" class="ans"></button>      
+      <button id="btn-3" class="ans"></button>     
+      <button id="btn-4" class="ans"></button>
     </div>
 
     <div id="results">
@@ -30,11 +44,18 @@
         </form>
       </div>
   
-      <div id="scores">
-        <h1>TOP SCORES!</h1>
-        <ul id="scoreslist"></ul>
-      </div>
-  
+      <!--scores-->
+      <div id="hideContent" class="controls">    
+        <h3>Finished!</h3>
+        <h3>Your final score is <span id="score"></span></h3>
+       
+        <form >
+          <input id="userInitials" placeholder="Initials, Please!" type="text"></input>
+    
+          <input id="submit-btn" type="submit" value="Submit">      
+        </form>
+      </div>  
+      
 
       <script src="./Assets/script.js"></script>
     
