@@ -12,11 +12,14 @@ HTML
 CSS
 
 
-## Screenshot
+## Links
+
+Repo: https://github.com/noerios/code_quiz
+Live Link: 
 
 
 
 The following animation demonstrates the intended application functionality:
 
-![code quiz](./Assets/04-web-apis-homework-demo.gif)
+![code quiz](./Assets/code-quiz-screenshot.png)
 
