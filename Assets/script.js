@@ -135,6 +135,7 @@ function gameOver() {
     console.log('game over!');
     //displaying results now div
     document.querySelector('#results').style.display = 'block';
+    //document.getElementById("#hideContent").style.display = "block";
     //adding scores
     document.querySelector('#score').textContent = countdown;
 
